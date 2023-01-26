@@ -41,6 +41,7 @@ const builtinExtensions = {
     adabrowser: () => require('../extensions/ada_browser'),
     jgFiles: () => require('../extensions/jg_files'),
     jgJSON: () => require('../extensions/jg_json'),
+    jwStructs: () => require('../extensions/structs')
 };
 
 /**

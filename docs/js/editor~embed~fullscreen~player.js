@@ -33742,6 +33742,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _files_files_png__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_files_files_png__WEBPACK_IMPORTED_MODULE_44__);
 /* harmony import */ var _json_json_png__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./json/json.png */ "./src/lib/libraries/extensions/json/json.png");
 /* harmony import */ var _json_json_png__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(_json_json_png__WEBPACK_IMPORTED_MODULE_45__);
+/* harmony import */ var _structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./structs/ooplogo.png */ "./src/lib/libraries/extensions/structs/ooplogo.png");
+/* harmony import */ var _structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46___default = /*#__PURE__*/__webpack_require__.n(_structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46__);
 
 
 
@@ -33765,6 +33767,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // TODO: Rename file names to match variable/prop names?
+
 
 
 
@@ -34162,6 +34165,18 @@ __webpack_require__.r(__webpack_exports__);
   featured: true,
   collaborator: 'PenguinMod',
   incompatibleWithScratch: true
+}, {
+  name: "Stucts (OOP)",
+  tags: ["utils", "other"],
+  extensionId: 'jwStructs',
+  iconURL: _structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Object-oriented programming",
+    id: "gui.extension.jwStructs.description"
+  }),
+  featured: true,
+  collaborator: 'PenguinMod',
+  incompatibleWithScratch: true
 }]);
 
 /***/ }),
@@ -34317,6 +34332,17 @@ module.exports = __webpack_require__.p + "static/assets/f7bed206888170bb7e11cafc
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/assets/c0165237067cd8a45029782998da84ed.svg";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/structs/ooplogo.png":
+/*!**********************************************************!*\
+  !*** ./src/lib/libraries/extensions/structs/ooplogo.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/c296552f9440b25b8225da38a14d9488.png";
 
 /***/ }),
 
