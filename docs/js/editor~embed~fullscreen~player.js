@@ -34177,6 +34177,18 @@ __webpack_require__.r(__webpack_exports__);
   featured: true,
   collaborator: 'PenguinMod',
   incompatibleWithScratch: true
+}, {
+  name: "Variables",
+  tags: ["utils", "other"],
+  extensionId: 'tempVars',
+  iconURL: _structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Temporary variables",
+    id: "gui.extension.tempVars.description"
+  }),
+  featured: true,
+  collaborator: 'The_Mad_Punter',
+  incompatibleWithScratch: true
 }]);
 
 /***/ }),
