@@ -42,7 +42,9 @@ const builtinExtensions = {
     jgFiles: () => require('../extensions/jg_files'),
     jgJSON: () => require('../extensions/jg_json'),
     jwStructs: () => require('../extensions/structs'),
-    tempVars: () => require('../extensions/variables')
+    tempVars: () => require('../extensions/variables'),
+    jgPrism: () => require('../extensions/jgPrism'),
+    jgWebsiteRequests: () => require('../extensions/jgBrowserRequests')
 };
 
 /**

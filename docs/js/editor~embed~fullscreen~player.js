@@ -33744,6 +33744,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _json_json_png__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(_json_json_png__WEBPACK_IMPORTED_MODULE_45__);
 /* harmony import */ var _structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./structs/ooplogo.png */ "./src/lib/libraries/extensions/structs/ooplogo.png");
 /* harmony import */ var _structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46___default = /*#__PURE__*/__webpack_require__.n(_structs_ooplogo_png__WEBPACK_IMPORTED_MODULE_46__);
+/* harmony import */ var _jgPrism_prism_png__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./jgPrism/prism.png */ "./src/lib/libraries/extensions/jgPrism/prism.png");
+/* harmony import */ var _jgPrism_prism_png__WEBPACK_IMPORTED_MODULE_47___default = /*#__PURE__*/__webpack_require__.n(_jgPrism_prism_png__WEBPACK_IMPORTED_MODULE_47__);
+/* harmony import */ var _jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./jgWebsiteRequests/websiteRequests.png */ "./src/lib/libraries/extensions/jgWebsiteRequests/websiteRequests.png");
+/* harmony import */ var _jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48___default = /*#__PURE__*/__webpack_require__.n(_jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48__);
 
 
 
@@ -33767,6 +33771,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // TODO: Rename file names to match variable/prop names?
+
+
 
 
 
@@ -34189,7 +34195,53 @@ __webpack_require__.r(__webpack_exports__);
   featured: true,
   collaborator: 'The_Mad_Punter',
   incompatibleWithScratch: true
+}, {
+  name: "Prism",
+  extensionId: 'jgPrism',
+  tags: ["utils", "others"],
+  iconURL: _jgPrism_prism_png__WEBPACK_IMPORTED_MODULE_47___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Prism Utilites from PenguinMod",
+    id: "gui.extension.jgPrism.description"
+  }),
+  featured: true,
+  collaborator: 'PenguinMod',
+  incompatibleWithScratch: true
+}, {
+  name: "Website Requests",
+  extensionId: 'jgWebsiteRequests',
+  tags: ["utils", "others"],
+  iconURL: _jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Website Requests from PenguinMod",
+    id: "gui.extension.jgWebsiteRequests.description"
+  }),
+  featured: true,
+  collaborator: 'PenguinMod',
+  incompatibleWithScratch: true
 }]);
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/jgPrism/prism.png":
+/*!********************************************************!*\
+  !*** ./src/lib/libraries/extensions/jgPrism/prism.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/4bfd8156fc8a4ea8f495c5da5b1dbc42.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/jgWebsiteRequests/websiteRequests.png":
+/*!****************************************************************************!*\
+  !*** ./src/lib/libraries/extensions/jgWebsiteRequests/websiteRequests.png ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/cd7616ddcc603802ffc1958cd8cf1d33.png";
 
 /***/ }),
 
