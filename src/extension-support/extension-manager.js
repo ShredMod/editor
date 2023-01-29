@@ -44,7 +44,8 @@ const builtinExtensions = {
     jwStructs: () => require('../extensions/structs'),
     tempVars: () => require('../extensions/variables'),
     jgPrism: () => require('../extensions/jgPrism'),
-    jgWebsiteRequests: () => require('../extensions/jgBrowserRequests')
+    jgWebsiteRequests: () => require('../extensions/jgBrowserRequests'),
+    freshpkg: () => require('../extensions/freshpkg')
 };
 
 /**
