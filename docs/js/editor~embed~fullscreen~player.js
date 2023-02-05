@@ -34220,16 +34220,16 @@ __webpack_require__.r(__webpack_exports__);
   collaborator: 'PenguinMod',
   incompatibleWithScratch: true
 }, {
-  name: "Fresh Package Manager",
+  name: "Add Sprites",
   extensionId: 'freshpkg',
   tags: ["utils", "others"],
   iconURL: _custom_custom_svg__WEBPACK_IMPORTED_MODULE_32___default.a,
   description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
-    defaultMessage: "A package manager for Scratch",
+    defaultMessage: "Add some important sprites to your game",
     id: "gui.extension.freshpkg.description"
   }),
   featured: true,
-  collaborator: 'FreshPenguin112',
+  collaborator: 'All sprite makers',
   incompatibleWithScratch: false
 }]);
 
