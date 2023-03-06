@@ -8,53 +8,18 @@ const ArgumentType = require('../../extension-support/argument-type');
  * @constructor
  */
 class JgRuntimeBlocks {
-    constructor(runtime) {
+    constructor (runtime) {
         /**
          * The runtime instantiating this block package.
          * @type {Runtime}
          */
         this.runtime = runtime;
-        this.md5HashApi = "https://api.hashify.net/hash/md5/hex?value="; // costumes want MD5 hashes for asset IDs and just in general ig
-        this.getImageSizeApi = "https://pm-bapi.vercel.app/api/getSize?url=" // costumes want their image size so they dont break lol
-        this.generateMd5Hash = (hashing) => {
-            return new Promise((resolve, _) => {
-                fetch(this.md5HashApi + String(hashing)).then(res => {
-                    res.json().then(json => {
-                        if (!json.Digest) {
-                            console.warn("MD5 hash could not be generated. Fallback is resolving with random number.");
-                            resolve(Math.round(Math.random() * 99999999999)); // fallback to generating random numbers incase it is deemed good enough
-                            return
-                        }
-                        resolve(String(json.Digest));
-                    }).catch(() => {
-                        console.warn("MD5 hash could not be generated. Fallback is resolving with random number.");
-                        resolve(Math.round(Math.random() * 99999999999)); // fallback to generating random numbers incase it is deemed good enough
-                    })
-                }).catch(() => {
-                    console.warn("MD5 hash could not be generated. Fallback is resolving with random number.");
-                    resolve(Math.round(Math.random() * 99999999999)); // fallback to generating random numbers incase it is deemed good enough
-                })
-            })
-        }
-        this.getImageSize = (imageUrl) => {
-            return new Promise((resolve, _) => {
-                fetch(this.getImageSizeApi + encodeURIComponent(String(imageUrl))).then(res => {
-                    res.json().then(json => {
-                        resolve(json);
-                    }).catch(() => {
-                        resolve({ width: 480, height: 360 });
-                    })
-                }).catch(() => {
-                    resolve({ width: 480, height: 360 });
-                })
-            })
-        }
     }
 
     /**
      * @returns {object} metadata for this extension and its blocks.
      */
-    getInfo() {
+    getInfo () {
         return {
             id: 'jgRuntime',
             name: 'Runtime',
@@ -63,16 +28,16 @@ class JgRuntimeBlocks {
             blocks: [
                 {
                     opcode: 'addCostumeUrl',
-                    text: formatMessage({
-                        id: 'jgRuntime.blocks.addCostumeUrl',
-                        default: 'add costume from [URL]',
-                        description: 'Adds a costume to the current sprite using the image at the URL. Returns the costume name.'
-                    }),
-                    blockType: BlockType.REPORTER,
+                    text: 'add costume [name] from [URL]',
+                    blockType: BlockType.COMMAND,
                     arguments: {
                         URL: {
                             type: ArgumentType.STRING,
-                            defaultValue: 'https://en.scratch-wiki.info/w/images/thumb/ScratchCat-Small.png/200px-ScratchCat-Small.png'
+                            defaultValue: 'https://penguinmod.github.io/PenguinMod-Gui/static/assets/9525874be2b1d66bd448bf53400011a9.svg'
+                        },
+                        name: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'blue flag'
                         }
                     }
                 },
@@ -174,110 +139,86 @@ class JgRuntimeBlocks {
                     }),
                     disableMonitor: false,
                     blockType: BlockType.REPORTER
+                },
+                {
+                    opcode: 'getIsClone',
+                    text: formatMessage({
+                        id: 'jgRuntime.blocks.getIsClone',
+                        default: 'is clone?',
+                        description: 'Block that returns whether the sprite is a clone or not.'
+                    }),
+                    disableMonitor: true,
+                    blockType: BlockType.BOOLEAN
                 }
             ]
         };
     }
-    addCostumeUrl(args, util) {
-        return new Promise((resolve, reject) => {
-            // console.warn('Runtime Block "add costume" is currently broken. Please avoid using it until the block is updated.');
-            const Asset = vm.runtime.storage.Asset;
-            const AssetType = vm.runtime.storage.AssetType;
-            const URL = String(args.URL);
-            // const COSTUME_SIZE_X = 480; // this will be changed in the future to the ACTUAL image size
-            // const COSTUME_SIZE_Y = 360; // this will be changed in the future to the ACTUAL image size
-            try {
-                if (util.target.isSprite) {
-                    const sprite = util.target.sprite;
-                    const COSTUMES_CURRENTLY_IN_THE_SPRITE = sprite.costumes.length;
-                    const LAST_SKIN_ID = sprite.costumes[sprite.costumes.length - 1].skinId
-                    const COSTUME_NAME = "runtime_" + String(encodeURIComponent(URL)).replace(/[^A-Za-z0-9]/gmi, "_").substring(0, 600) + String(10000 + (Math.random() * 99999)) + String(((COSTUMES_CURRENTLY_IN_THE_SPRITE + LAST_SKIN_ID) * 3) + 11);
-                    // this.generateMd5Hash(COSTUME_NAME).then(GENERATED_MD5 => {
-                    const fetchedImageUrl = String(URL).startsWith("data:image/") ? String(URL) : "https://api.allorigins.win/raw?url=" + encodeURIComponent(URL)
-                    fetch(fetchedImageUrl).then(req => {
-                        if (req.headers.get("Content-Type") != "image/png" && req.headers.get("Content-Type") != "image/jpeg") return console.warn('Format', req.headers.get("Content-Type"), 'is not supported for costumes');
-                        if (req.status == 200) {
-                            this.getImageSize(fetchedImageUrl).then(IMAGE_SIZE => {
-                                const COSTUME_SIZE_X = IMAGE_SIZE.width;
-                                const COSTUME_SIZE_Y = IMAGE_SIZE.height;
-                                req.blob().then(blob => {
-                                    blob.arrayBuffer().then(arrayBuffer => {
-                                        const UINT8ARRAY_COSTUME_DATA = new Uint8Array(arrayBuffer, 0, arrayBuffer.byteLength);
-                                        const CONTENT_TYPE = req.headers.get("Content-Type");
-                                        const IMAGE_CONTENT_TYPE = /*CONTENT_TYPE == "image/png" ? */"ImageBitmap";// : "ImageVector";
-                                        const FILE_EXTENSION = CONTENT_TYPE == "image/png" ? "png" : "jpg";
-                                        const ASSET = vm.runtime.storage.createAsset(AssetType[IMAGE_CONTENT_TYPE], FILE_EXTENSION, UINT8ARRAY_COSTUME_DATA, null, true);
-                                        const GENERATED_MD5 = ASSET.assetId;
-                                        const ROTATION_CENTER = {
-                                            x: Math.round(COSTUME_SIZE_X) / 2,
-                                            y: Math.round(COSTUME_SIZE_Y) / 2
-                                        }
-                                        const SKIN_ID = vm.renderer.createBitmapSkin(UINT8ARRAY_COSTUME_DATA, 1, [
-                                            ROTATION_CENTER.x,
-                                            ROTATION_CENTER.y
-                                        ]);
-                                        const costumeObject = {
-                                            asset: ASSET,
-                                            assetId: ASSET.assetId,
-                                            bitmapResolution: 1,
-                                            dataFormat: FILE_EXTENSION,
-                                            md5: GENERATED_MD5 + "." + FILE_EXTENSION,
-                                            name: COSTUME_NAME,
-                                            rotationCenterX: ROTATION_CENTER.x,
-                                            rotationCenterY: ROTATION_CENTER.y,
-                                            size: [
-                                                COSTUME_SIZE_X,
-                                                COSTUME_SIZE_Y
-                                            ],
-                                            skinId: SKIN_ID
-                                        }
-                                        sprite.addCostumeAt(costumeObject, COSTUMES_CURRENTLY_IN_THE_SPRITE);
-                                        resolve(COSTUME_NAME)
-                                    })
-                                })
-                            })
-                        } else {
-                            console.warn("Failed to fetch costume");
-                        }
-                    })
-                    // })
-                }
-            } catch (e) {
-                console.warn(e);
-            }
-        })
+    addCostumeUrl (args, util) {
+        fetch(args.URL, { method: 'GET' }).then(x => x.blob().then(blob => {
+            if (!(
+                (blob.type === 'image/png') || 
+                (blob.type === 'image/svg+xml')
+            )) throw new Error(`Invalid mime type: "${blob.type}"`);
+            
+            const assetType = blob.type === 'image/png'
+                ? this.runtime.storage.AssetType.ImageBitmap 
+                : this.runtime.storage.AssetType.ImageVector;
+            
+            const dataType = blob.type === 'image/png' 
+                ? this.runtime.storage.DataFormat.PNG 
+                : this.runtime.storage.DataFormat.SVG;
+            
+            blob.arrayBuffer()
+                .then(buffer => {
+                    const asset = this.runtime.storage.createAsset(assetType, dataType, buffer, null, true);
+                    const name = `${asset.assetId}.${asset.dataFormat}`;
+                    const spriteJson = {
+                        asset: asset, 
+                        md5ext: name, 
+                        name: args.name
+                    };
+                    vm.addCostume(name, spriteJson, util.target.id);
+                })
+                .catch(err => {
+                    console.error(`Failed to Load Costume: ${err}`);
+                    console.warn(err);
+                });
+        }));
     }
-    deleteCostume(args, util) {
+    deleteCostume (args, util) {
         const index = (Number(args.COSTUME) ? Number(args.COSTUME) : 1) - 1;
         if (index < 0) return;
-        vm.deleteCostume(index);
+        util.target.deleteCostume(index);
     }
-    setStageSize(args, util) {
+    setStageSize (args) {
         let width = Number(args.WIDTH) || 480;
         let height = Number(args.HEIGHT) || 360;
         if (width <= 0) width = 1;
         if (height <= 0) height = 1;
         if (vm) vm.setStageSize(width, height);
     }
-    turboModeEnabled() {
-        return vm.runtime.turboMode;
+    turboModeEnabled () {
+        return this.runtime.turboMode;
     }
-    amountOfClones() {
-        return vm.runtime._cloneCounter;
+    amountOfClones () {
+        return this.runtime._cloneCounter;
     }
-    getStageWidth() {
-        return vm.runtime.stageWidth;
+    getStageWidth () {
+        return this.runtime.stageWidth;
     }
-    getStageHeight() {
-        return vm.runtime.stageHeight;
+    getStageHeight () {
+        return this.runtime.stageHeight;
     }
-    getMaxFrameRate() {
-        return vm.runtime.frameLoop.framerate;
+    getMaxFrameRate () {
+        return this.runtime.frameLoop.framerate;
     }
-    setMaxFrameRate(args, util) {
+    getIsClone (args, util) {
+        return !(util.target.isOriginal);
+    }
+    setMaxFrameRate (args) {
         let frameRate = Number(args.FRAMERATE) || 1;
         if (frameRate <= 0) frameRate = 1;
-        if (vm) vm.runtime.frameLoop.setFramerate(frameRate);
+        this.runtime.frameLoop.setFramerate(frameRate);
     }
 }
 

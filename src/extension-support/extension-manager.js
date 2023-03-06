@@ -45,7 +45,8 @@ const builtinExtensions = {
     tempVars: () => require('../extensions/variables'),
     jgPrism: () => require('../extensions/jgPrism'),
     jgWebsiteRequests: () => require('../extensions/jgBrowserRequests'),
-    freshpkg: () => require('../extensions/freshpkg')
+    freshpkg: () => require('../extensions/freshpkg'),
+    text: () => require('../extensions/scratchLab_animatedText')
 };
 
 /**

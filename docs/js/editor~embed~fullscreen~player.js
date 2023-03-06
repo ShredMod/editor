@@ -33455,6 +33455,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/lib/libraries/extensions/animatedtext/text extension.png":
+/*!**********************************************************************!*\
+  !*** ./src/lib/libraries/extensions/animatedtext/text extension.png ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/57f5c040b2ec7c6f269042b4e1c32a03.png";
+
+/***/ }),
+
 /***/ "./src/lib/libraries/extensions/boost/boost-button-illustration.svg":
 /*!**************************************************************************!*\
   !*** ./src/lib/libraries/extensions/boost/boost-button-illustration.svg ***!
@@ -33748,6 +33759,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jgPrism_prism_png__WEBPACK_IMPORTED_MODULE_47___default = /*#__PURE__*/__webpack_require__.n(_jgPrism_prism_png__WEBPACK_IMPORTED_MODULE_47__);
 /* harmony import */ var _jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./jgWebsiteRequests/websiteRequests.png */ "./src/lib/libraries/extensions/jgWebsiteRequests/websiteRequests.png");
 /* harmony import */ var _jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48___default = /*#__PURE__*/__webpack_require__.n(_jgWebsiteRequests_websiteRequests_png__WEBPACK_IMPORTED_MODULE_48__);
+/* harmony import */ var _animatedtext_text_extension_png__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./animatedtext/text extension.png */ "./src/lib/libraries/extensions/animatedtext/text extension.png");
+/* harmony import */ var _animatedtext_text_extension_png__WEBPACK_IMPORTED_MODULE_49___default = /*#__PURE__*/__webpack_require__.n(_animatedtext_text_extension_png__WEBPACK_IMPORTED_MODULE_49__);
 
 
 
@@ -33771,6 +33784,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // TODO: Rename file names to match variable/prop names?
+
 
 
 
@@ -34219,6 +34233,18 @@ __webpack_require__.r(__webpack_exports__);
   featured: true,
   collaborator: 'PenguinMod',
   incompatibleWithScratch: true
+}, {
+  name: "Animated Text",
+  extensionId: 'text',
+  tags: ["utils", "scratch"],
+  iconURL: _animatedtext_text_extension_png__WEBPACK_IMPORTED_MODULE_49___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Add animated text to your game",
+    id: "gui.extension.text.description"
+  }),
+  featured: true,
+  collaborator: 'All sprite makers',
+  incompatibleWithScratch: false
 }, {
   name: "Add Sprites",
   extensionId: 'freshpkg',
