@@ -38812,6 +38812,17 @@ const ScratchPaintReducer = (state, action) => {
 
 /***/ }),
 
+/***/ "./src/lib/tw-scratch-render-fonts/DTM-Mono.otf":
+/*!******************************************************!*\
+  !*** ./src/lib/tw-scratch-render-fonts/DTM-Mono.otf ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/84f9339292198742fd3734768f23941a.otf";
+
+/***/ }),
+
 /***/ "./src/lib/tw-scratch-render-fonts/Grand9K-Pixel.ttf":
 /*!***********************************************************!*\
   !*** ./src/lib/tw-scratch-render-fonts/Grand9K-Pixel.ttf ***!
@@ -38856,6 +38867,17 @@ module.exports = __webpack_require__.p + "static/assets/9ec3449723269a806ec6eaba
 
 /***/ }),
 
+/***/ "./src/lib/tw-scratch-render-fonts/Pixel_NES.otf":
+/*!*******************************************************!*\
+  !*** ./src/lib/tw-scratch-render-fonts/Pixel_NES.otf ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/76e3973e9fd5b46e4c56433bd16e3a02.otf";
+
+/***/ }),
+
 /***/ "./src/lib/tw-scratch-render-fonts/Scratch.ttf":
 /*!*****************************************************!*\
   !*** ./src/lib/tw-scratch-render-fonts/Scratch.ttf ***!
@@ -38875,6 +38897,17 @@ module.exports = __webpack_require__.p + "static/assets/bbc0dd79717bfa338a199bb2
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/assets/8996930d8e83f63cc3341172205df460.otf";
+
+/***/ }),
+
+/***/ "./src/lib/tw-scratch-render-fonts/apple_kid.ttf":
+/*!*******************************************************!*\
+  !*** ./src/lib/tw-scratch-render-fonts/apple_kid.ttf ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/c0082e4310a2fc5d31033957efabd85b.ttf";
 
 /***/ }),
 
@@ -38911,6 +38944,12 @@ const Pixel = __webpack_require__(/*! ./Grand9K-Pixel.ttf */ "./src/lib/tw-scrat
 
 const Scratch = __webpack_require__(/*! ./Scratch.ttf */ "./src/lib/tw-scratch-render-fonts/Scratch.ttf");
 
+const AppleKid = __webpack_require__(/*! ./apple_kid.ttf */ "./src/lib/tw-scratch-render-fonts/apple_kid.ttf");
+
+const Determination = __webpack_require__(/*! ./DTM-Mono.otf */ "./src/lib/tw-scratch-render-fonts/DTM-Mono.otf");
+
+const PixelNES = __webpack_require__(/*! ./Pixel_NES.otf */ "./src/lib/tw-scratch-render-fonts/Pixel_NES.otf");
+
 const log = __webpack_require__(/*! ../log */ "./src/lib/log.js").default;
 
 const fontSource = {
@@ -38920,7 +38959,10 @@ const fontSource = {
   'Marker': Marker,
   'Curly': Curly,
   'Pixel': Pixel,
-  'Scratch': Scratch
+  'Scratch': Scratch,
+  'Apple Kid': AppleKid,
+  'Determination': Determination,
+  'Pixel NES': PixelNES
 };
 const fontData = {};
 
@@ -44283,6 +44325,17 @@ const updateMetrics = function updateMetrics(metrics) {
 
 /***/ }),
 
+/***/ 10:
+/*!*******************************!*\
+  !*** ./lib/locales (ignored) ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
 /***/ 2:
 /*!*******************************!*\
   !*** ./lib/locales (ignored) ***!
@@ -44295,9 +44348,9 @@ const updateMetrics = function updateMetrics(metrics) {
 /***/ }),
 
 /***/ 3:
-/*!*********************************!*\
-  !*** readable-stream (ignored) ***!
-  \*********************************/
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -44317,9 +44370,9 @@ const updateMetrics = function updateMetrics(metrics) {
 /***/ }),
 
 /***/ 5:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
+/*!*********************************!*\
+  !*** readable-stream (ignored) ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -44342,6 +44395,28 @@ const updateMetrics = function updateMetrics(metrics) {
 /*!**********************************!*\
   !*** ./node/extend.js (ignored) ***!
   \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 8:
+/*!*****************************************!*\
+  !*** ../locale-data/index.js (ignored) ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 9:
+/*!*******************************!*\
+  !*** ./lib/locales (ignored) ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
